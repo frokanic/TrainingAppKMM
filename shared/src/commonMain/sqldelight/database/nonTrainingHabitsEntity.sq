@@ -1,0 +1,9 @@
+CREATE TABLE nonTrainingHabitsEntity (
+    id INTEGER NOT NULL PRIMARY KEY,
+    date TEXT NOT NULL,
+    hours_of_sleep TEXT NOT NULL,
+    weight INTEGER NOT NULL,
+    protein INTEGER NOT NULL,
+    carbs INTEGER NOT NULL,
+    fats INTEGER NOT NULL
+);

@@ -1,0 +1,32 @@
+CREATE TABLE exercisesOfTheWorkoutEntity (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    exercise TEXT NOT NULL,
+    number_of_set INTEGER NOT NULL,
+    number_of_reps INTEGER NOT NULL,
+    workout_id INTEGER NOT NULL
+);
+
+
+getAllExercisesByWorkout:
+SELECT *
+FROM exercisesOfTheWorkoutEntity
+WHERE workout_id =
+    (SELECT id
+    FROM workoutEntity
+    WHERE workout_name = :workout_name);
+
+
+getExerciseByWorkout:
+SELECT *
+FROM exercisesOfTheWorkoutEntity
+WHERE workout_id =
+    (SELECT id
+    FROM workoutEntity
+    WHERE workout_name = :workout_name)
+AND exercise = :exercise;
+
+--WRONG
+--insertExercise:
+--INSERT
+--INTO exercisesOfTheWorkoutEntity
+--VALUES (1, ?, 1, 0, 0);
